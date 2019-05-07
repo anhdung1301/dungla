@@ -1,0 +1,100 @@
+<h1><?php echo $block->getHelloWorld();
+    $id = $block->getCustomerID()->getCustomer()->getid() ? $block->getCustomerID()->getCustomer()->getid() : '';
+    //var_dump($block->getdata());
+    ?>
+</h1>
+
+
+<!---->
+<!--<style>-->
+<!--    table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  margin-top: 30px;}-->
+<!--    td, th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  }-->
+<!--    tr:nth-child(even) { background-color: #dddddd; }-->
+
+<!---->
+<!--</style>-->
+
+<div class="content">
+
+    <table>
+        <tr>
+
+            <th>Name</th>
+            <th class="post-name">Content</th>
+            <th class="post-id">Status</th>
+
+            <th><?php
+                if ($id != null) {
+                    echo "<button onclick=\"window.location.href='http://ecommage.local/EcommageValidation/index/form'\">Add</button>";
+                } else {
+                    echo "Đăng nhập để post ";
+                } ?>
+            </th>
+        </tr>
+        <?php foreach ($block->getName($id) as $key => $post): ?>
+            <form action="http://ecommage.local/EcommageValidation/index/edit" method="post">
+                <tr>
+
+                    <input type="hidden" value="<?php echo $post['id'] ?>" name="id">
+                    <td><?= $post['firstname'] . '  ' . $post['lastname'] ?></td>
+                    <td><?= $post['content'] ?></td>
+                    <td> <?php switch ($post['status']) {
+                            case 2:
+                                echo "draft";
+                                break;
+                            case 3:
+                                echo "non-publish";
+                                break;
+
+                            default:
+                                echo "publish";
+                                break;
+                        }
+                        ?></td>
+                    <td><?php
+                        if ($id == $post['author_id'])
+                            echo "<input type=\"submit\" value=\"Edit\" > " ?>
+                    </td>
+                </tr>
+            </form>
+        <?php endforeach; ?>
+
+
+    </table>
+</div>
+</body>
+</html>
+
+<!--<script>-->
+<!--    var text = "LEE";-->
+<!--    var a = text.toLowerCase();-->
+<!--    var arr1 = a.split(' ');-->
+<!--    var d;-->
+<!--    arr1.forEach(function (element) {-->
+<!---->
+<!--        switch (element) {-->
+<!--            case 'lê':-->
+<!--            case 'nam':-->
+<!--                d = 1;-->
+<!--                break;-->
+<!---->
+<!---->
+<!--        }-->
+<!---->
+<!---->
+<!--    });-->
+<!---->
+<!---->
+<!--    if (d === 1) {-->
+<!--        document.write("Thành Công");-->
+<!---->
+<!--    } else{-->
+<!--        document.write("Thất Bại");-->
+<!--    }-->
+<!--    var text="Dung";-->
+<!---->
+<!--    document.write(text);-->
+<!---->
+<!---->
+<!--</script>-->
+

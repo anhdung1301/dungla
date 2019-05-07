@@ -1,0 +1,33 @@
+
+<form name="form1" method="POST" id="form1"  >
+    <table>
+        <tr>
+
+            <input type="hidden" value="<?= $block->getCustomerID()->getCustomer()->getid() ?>" name="author_id" id="author_id">
+        </tr>
+        <tr>
+            <td>Content</td>
+            <td> <textarea rows="4" cols="50" name="connten" id="connten">
+</textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Status</td>
+            <td><select name="status" id="status">
+                    <option value="2">draft</option>
+                    <option value="3">non-publish</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center"><input type="submit" value="Save"  </td>
+        </tr>
+    </table>
+</form>
+
+
+
+
+
+
+

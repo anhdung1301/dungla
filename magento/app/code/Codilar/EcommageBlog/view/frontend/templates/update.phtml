@@ -1,0 +1,28 @@
+<?php $data = (array)$this->getRequest()->getPost();
+
+$dataB = $block->getdatabyid($data['id']);
+?>
+
+<form id="form2" name="form2" method="post">
+    <table>
+        <tr>
+            <input type="hidden" value="<?= $data['id'] ?>" name="id" id="id">
+        </tr>
+        <tr>
+            <td>Content</td>
+            <td> <textarea rows="4" cols="50" name="connten" id="connten"> <?php echo $dataB['content']; ?>
+</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td><select name="status" id="status">
+                    <option value="2" <?php if ($dataB['status'] == 2) echo 'selected'; ?> ">draft</option>
+                    <option value="3" <?php if ($dataB['status'] == 3) echo 'selected'; ?> >non-publish</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center"><input type="submit" value="Save"></td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Codilar_EcommageBlog::ecommageblog" title="Blogs" module="Codilar_EcommageBlog" sortOrder="51" resource="Codilar_EcommageBlog::ecommageblog"/>
+        <add id="Codilar_EcommageBlog::post" title="Posts" module="Codilar_EcommageBlog" sortOrder="10" action="ecommageblog/post/index" resource="Codilar_EcommageBlog::post" parent="Codilar_EcommageBlog::ecommageblog"/>
+        <add id="Codilar_EcommageBlog::ecommageblog_configuration" title="Configuration" module="Codilar_EcommageBlog" sortOrder="99" parent="Codilar_EcommageBlog::ecommageblog" action="adminhtml/system_config/edit/section/ecommageblog" resource="Codilar_EcommageBlog::ecommageblog_configuration"/>
+    </menu>
+</config>

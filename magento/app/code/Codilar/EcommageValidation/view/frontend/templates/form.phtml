@@ -1,0 +1,134 @@
+<?php
+$check = $block->getConfig();
+
+
+?>
+<form name="form1" method="post" id="form1">
+    <table>
+        <tr>
+
+            <input type="hidden" value="<?= $block->getCustomerID()->getCustomer()->getid() ?>" name="author_id"
+                   id="author_id">
+            <input type="hidden" value="<?= $block->getConfig() ?>" name="check" id="check">
+
+        </tr>
+        <tr>
+            <td>Content</td>
+            <td> <textarea rows="4" cols="50" name="connten" id="connten">
+</textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Status</td>
+            <td><select name="status" id="status">
+                    <option value="2">draft</option>
+                    <option value="3">non-publish</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center"><input type="submit" value="Save" name="ok"></td>
+        </tr>
+    </table>
+</form>
+
+<script>
+    function containsBlacklistWords(str, substrings) {
+
+        for (var i = 0; i != substrings.length; i++) {
+            var substring = substrings[i];
+            if (str.indexOf(substring) != -1) {
+                return true
+            }
+        }
+        return false
+    }
+
+    require(["jquery"], function ($) {
+        $(document).ready(function () {
+
+
+            jQuery("#form1").submit(function () {
+
+                var connten = document.getElementById("connten").value;
+                var check =document.getElementById("check").value;
+                var checka = check.split(',');
+
+
+
+
+                if(containsBlacklistWords(connten, checka)){
+                    alert("bad words accquired, please update")
+
+                }else{
+                    var author_id = document.getElementById("author_id").value;
+                    var status = document.getElementById("status").value;
+                    var url = "http://ecommage.local/EcommageBlog/index/add";
+
+                    $.ajax({
+                        url: url,
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            connten: connten,
+                            author_id: author_id,
+                            status: status
+                        },
+                        complete: function () {
+                            window.location = "http://ecommage.local/EcommageValidation";
+
+                        },
+                        error: function () {
+
+                        }
+
+                    });
+                }
+
+
+
+
+            });
+
+        });
+    });
+
+
+</script>
+
+<!---->
+<!--<script>-->
+<!--    require(["jquery"], function ($) {-->
+<!--        $(document).ready(function () {-->
+<!---->
+<!--            jQuery("#form1").submit(function () {-->
+<!---->
+<!---->
+<!--                alert(2);-->
+<!--                var connten = document.getElementById("connten").value;-->
+<!--                console.log(connten);-->
+<!--                var a = connten.toLowerCase();-->
+<!--                var arr1 = a.split(' ');-->
+<!--                var check;-->
+<!---->
+<!--                arr1.forEach(function (element) {-->
+<!---->
+<!--                    switch (element) {-->
+<!--                        case 'lê':-->
+<!--                        case 'nam':-->
+<!--                            check = 1;-->
+<!--                            break;-->
+<!--                    }-->
+<!--                });-->
+<!---->
+<!--            });-->
+<!--        });-->
+<!--    })-->
+<!---->
+<!--</script>-->
+
+
+
+
+
+
