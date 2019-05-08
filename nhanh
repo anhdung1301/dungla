@@ -1,4 +1,4 @@
-o	sudo /etc/init.d/mysql stop
+sudo /etc/init.d/mysql stop
 sudo mysqld_safe --skip-grant-tables &
 
 	mysql
@@ -41,6 +41,8 @@ sudo gedit /etc/hosts
 
 sudo /etc/init.d/apache2 restart
 
+
+
 ///
 https://framework.zend.com/manual/1.12/en/zend.db.select.html
 
@@ -49,15 +51,4 @@ https://framework.zend.com/manual/1.12/en/zend.db.select.html
 ssh-keygen -t rsa
 cat ~/.ssh/id_rsa.pub
 ///
-git init 
-git add .
-git commit -m "asdsa"
-gir remote add origin git@guthub.com:anhdung1301/ten.git
-git push -u origin master
-
-
-//thay doi ten commit $ git commit --amend
-
-
-
 
