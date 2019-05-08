@@ -61,5 +61,8 @@ git push -u origin master
 git clone girt :asdas/
 
 
+xóa file đã đc add git reset HEAD test.html
+
+
 
 
