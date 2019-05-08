@@ -56,7 +56,9 @@ gir remote add origin git@guthub.com:anhdung1301/ten.git
 git push -u origin master
 
 
-//thay doi ten commit $ git commit --amend
+//gop casc  commit $ git commit --amend
+//git rebase master lay ban cap nhat moi nhat ve nhanh dang dung 
+git clone girt :asdas/
 
 
 
