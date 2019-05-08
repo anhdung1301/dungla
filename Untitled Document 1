@@ -46,3 +46,9 @@ sudo /etc/init.d/apache2 restart
 ///
 https://framework.zend.com/manual/1.12/en/zend.db.select.html
 
+
+//// git ssh
+	ssh-keygen -t rsa
+
+cat ~/.ssh/id_rsa.pub
+
